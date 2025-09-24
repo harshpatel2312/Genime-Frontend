@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Genime - AI Anime Image Generator</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Animations -->
+  <style type="text/tailwindcss">
+    @keyframes input-focus-animation {
+      0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+      100% { box-shadow: 0 0 0 4px rgba(220, 38, 38, 0); }
+    }
+    .input-focus-animation:focus { animation: input-focus-animation 1s ease-out; }
+
+    @keyframes progress-bar {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+    .progress-bar-animation { animation: progress-bar 3s ease-in-out forwards; }
+
+    @keyframes hue-rotate {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+    .hue-rotate-animation { animation: hue-rotate 10s linear infinite; }
+  </style>
+</head>
+
+<body class="bg-black font-['Space Grotesk','Noto Sans',sans-serif]">
+  <div class="relative flex min-h-screen flex-col overflow-x-hidden">
+
+    <!-- Background Image Grid -->
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-black/50 z-10"></div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 hue-rotate-animation blur-sm opacity-30">
+        <!-- Replace URLs dynamically or duplicate as needed -->
+        <div class="aspect-square bg-cover bg-center" style="background-image:url('/assets/background-images/20250302.jpg');"></div>
+       <!-- <div class="aspect-square bg-cover bg-center" style="background-image:url('https://lh3.googleusercontent.com/aida-public/...');"></div>-->
+        <!--<div class="aspect-square bg-cover bg-center" style="background-image:url('https://lh3.googleusercontent.com/aida-public/...');"></div>-->
+        <!-- Add or remove blocks depending on how many images you want -->
+      </div>
+    </div>
+
+    <!-- Foreground Layout -->
+    <div class="relative z-20 flex grow flex-col">
+
+      <!-- Header -->
+      <header class="flex items-center justify-between border-b border-white/10 px-10 py-4">
+        <div class="flex items-center gap-3 text-white">
+          <svg class="size-6 text-red-500" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+              d="M12.08 24 4 19.25l5.95-10.5 8.09 4.74V4h11.91v9.49l8.09-4.74 5.96 10.5-8.08 4.75 8.08 4.75-5.96 10.5-8.09-4.74V44H18.04v-9.49l-8.09 4.74L4 28.75 12.08 24Z" />
+          </svg>
+          <h1 class="text-xl font-bold tracking-tighter">Genime</h1>
+        </div>
+        <button
+          class="rounded-lg bg-red-600 px-6 h-10 text-sm font-bold text-white hover:bg-red-700 transition-colors">
+          Login / Sign Up
+        </button>
+      </header>
+
+      <!-- Main Content -->
+      <main class="flex flex-1 flex-col items-center px-4 py-24 sm:px-6 lg:px-8 text-center">
+        <section class="max-w-3xl">
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter text-white">
+            Bring Your Imagination to Life
+          </h2>
+          <p class="mt-4 max-w-xl mx-auto text-lg text-gray-300">
+            Generate stunning, unique anime-style art with the power of AI. Just type a prompt and watch the magic happen.
+          </p>
+        </section>
+
+        <!-- Prompt Input -->
+        <section class="mt-10 w-full max-w-2xl">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="A cat samurai in a neon-lit Tokyo street, detailed, cinematic"
+              class="form-input input-focus-animation w-full rounded-xl border border-white/20 bg-black/50 p-4 pr-32 text-base text-white placeholder-gray-400 focus:outline-0 focus:ring-2 focus:ring-red-500 h-16">
+            <button
+              class="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg bg-red-600 px-6 h-12 text-sm font-bold text-white hover:bg-red-700 transition-colors">
+              Generate
+            </button>
+          </div>
+        </section>
+
+        <!-- Loading Bar -->
+        <section class="mt-12 w-full max-w-2xl">
+          <div class="flex flex-col gap-2 p-4 rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm">
+            <div class="flex items-center justify-between">
+              <p class="text-base font-medium text-white">Generating...</p>
+              <p class="text-sm text-gray-400">This may take a few seconds</p>
+            </div>
+            <div class="h-2.5 w-full rounded-full bg-white/20 overflow-hidden">
+              <div class="progress-bar-animation h-2.5 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
