@@ -1,0 +1,56 @@
+/* Wave animation styles */
+.wave-wrapper {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: transparent;
+}
+
+.wave-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  overflow: hidden;
+  border-radius: inherit;
+  transition: width 4s linear;
+}
+
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200%" height="20" viewBox="0 0 200 20" preserveAspectRatio="none"><path d="M0 10 Q25 0 50 10 T100 10 T150 10 T200 10 V20 H0 Z" fill="%233b82f6"/></svg>');
+  background-size: 50% 100%;
+  animation: waveMove 2s linear infinite;
+}
+
+@keyframes waveMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Fade-in animation for generated image */
+@keyframes fadeInSmooth {
+  0% {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  60% {
+    opacity: 0.7;
+    transform: scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in-image {
+  animation: fadeInSmooth 1.5s ease forwards;
+}
