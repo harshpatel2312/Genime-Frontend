@@ -26,14 +26,14 @@
     }
     .hue-rotate-animation { animation: hue-rotate 10s linear infinite; }
 
-    /* Custom textarea focus behavior */
+    /* Textarea focus colors */
     #promptBox:focus {
       outline: none;
-      box-shadow: 0 0 0 2px #3B82F6; /* Tailwind blue-500 */
+      box-shadow: 0 0 0 2px #3B82F6;
       border-color: #3B82F6;
     }
     #promptBox.has-text {
-      box-shadow: 0 0 0 2px #10B981; /* Tailwind emerald-500 */
+      box-shadow: 0 0 0 2px #10B981;
       border-color: #10B981;
     }
 
@@ -52,7 +52,7 @@
       top: 0;
       left: 0;
       height: 100%;
-      width: 0%; /* start empty */
+      width: 0%;
       overflow: hidden;
       border-radius: inherit;
       transition: width 4s linear;
@@ -77,14 +77,14 @@
 <body class="bg-black font-['Space Grotesk','Noto Sans',sans-serif]">
   <div class="relative flex min-h-screen flex-col overflow-x-hidden">
 
-    <!-- Background Image -->
+    <!-- Background -->
     <div class="absolute inset-0 z-0">
       <div class="absolute inset-0 bg-black/40 z-10"></div>
       <div class="absolute inset-0 bg-cover bg-center"
            style="background-image:url('assets/background-images/Samurai.jpeg');"></div>
     </div>
 
-    <!-- Foreground Layout -->
+    <!-- Foreground -->
     <div class="relative z-20 flex grow flex-col">
 
       <!-- Header -->
@@ -103,7 +103,7 @@
         </button>
       </header>
 
-      <!-- Main Content -->
+      <!-- Main -->
       <main class="flex flex-1 flex-col items-center px-4 py-24 sm:px-6 lg:px-8 text-center">
         <section class="max-w-3xl">
           <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter text-white">
@@ -117,14 +117,12 @@
         <!-- Prompt Input -->
         <section class="mt-10 w-full max-w-2xl">
           <div class="flex flex-col items-center">
-            <!-- Auto-expanding Textarea -->
             <textarea
               id="promptBox"
               rows="1"
               placeholder="A cat samurai in a neon-lit Tokyo street, detailed, cinematic"
               class="form-textarea w-full rounded-xl border border-white/20 bg-black/50 p-4 text-base text-white placeholder-gray-400 resize-none min-h-[64px] max-h-[300px] transition-all duration-300"></textarea>
 
-            <!-- Generate Button -->
             <button
               id="generateBtn"
               class="mt-4 rounded-lg bg-red-600 px-8 py-3 text-sm font-bold text-white hover:bg-red-700 transition-colors">
@@ -146,13 +144,19 @@
               </div>
             </div>
           </div>
+
+          <!-- 🖼️ Image Display -->
+          <div id="imageContainer" class="mt-10 flex justify-center hidden">
+            <img id="generatedImage" class="max-w-full rounded-xl shadow-lg border border-white/10" alt="Generated Image" />
+          </div>
         </section>
       </main>
     </div>
   </div>
 
-  <!-- External JS -->
+  <!-- JS Files -->
   <script src="js/prompt-resize.js"></script>
   <script src="js/loading-bar.js"></script>
+  <script src="js/api.js"></script>
 </body>
 </html>
