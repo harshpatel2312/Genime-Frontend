@@ -89,8 +89,8 @@ dotenv.config();
 
 ---
 
-## 📸 Screenshots
-(Add screenshots of your UI here: prompt box, loading bar, generated image)
+## 📸 Preview
+![Genime Screenshot](public/assets/github-preview/Genime-Preview.png)
 
 ---
 
