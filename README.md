@@ -1,16 +1,7 @@
 # Genime-Frontend
 
-**Genime-Frontend** is the user interface for **Genime**, an AI-powered anime image generator.  
-It allows users to enter prompts, send them to the backend, and view generated results in a sleek, responsive interface.
-
----
-
-## ✨ Features
-- 🎨 **Prompt input with auto-expanding textarea**  
-- 🔘 **Generate button** to trigger backend requests  
-- 🌊 **Animated wave-style loading bar** that fills gradually  
-- 📱 **Responsive design** built with TailwindCSS  
-- 🔗 Seamless integration with **Genime-Backend**
+This is the frontend for **Genime**, an AI-based anime image generation project.
+It connects to the **[Genime-Backend](https://github.com/harshpatel2312/Genime-Backend)** to generate anime-style art from text prompts — rendered dynamically in a sleek, responsive UI built with **Express, EJS, and TailwindCSS**.
 
 ---
 
@@ -18,13 +9,31 @@ It allows users to enter prompts, send them to the backend, and view generated r
 ```bash
 Genime-Frontend/
 │
-├── index.html # Main frontend page
-├── assets/
-│   └── background-images/ # Background images (e.g., Samurai.jpeg)
-└── js/
-|    ├── prompt-resize.js # Handles textarea resizing & focus styles
-|    └── loading-bar.js # Controls wave loading animation
+├── server.js                  # Main Express server
+│
+├── views/
+│   └── index.ejs              # Single-page layout (prompt + generated image)
+│
+├── public/
+│   ├── css/
+│   │   └── style.css          # Custom wave + fade animations
+│   ├── js/
+│   │   └── loading.js         # Handles fetch, animation, and display logic
+│   └── assets/
+│       └── background-images/
+│           └── Samurai.jpeg   # Background image
+│
+├── package.json               # Project dependencies and scripts
+├── package-lock.json          # Dependency lock file
+└── .gitignore
+
 ```
+
+## ⚙️ Tech Stack
+- **Frontend**: Node.js, Express.js, EJS, TailwindCSS
+- **Backend**: FastAPI (runs separately)
+- **Language**: JavaScript (ES Modules)
+- **Animations**: CSS keyframes for wave + fade effects
 
 ---
 
@@ -36,35 +45,47 @@ git clone https://github.com/harshpatel2312/Genime-Frontend.git
 cd Genime-Frontend
 ```
 
-### 2. Open the App
-Simply open `index.html` in your browser.
-> For local dev with backend, you may prefer to run via a local server (e.g., VSCode Live Server or `python -m http.server`).
+### 2️. Install dependencies
+```bash
+npm install
+```
 
-### 3. Configure Backend URL
-Update your frontend JavaScript to point to the **Genime-Backend API**.
-Example:
+### 3. Run the development server
+```bash
+npm start
+```
+> Note: By default, the app runs at http://127.0.0.1:3000
+
+---
+
+## 🧠 Environment Variables (optional)
+If you want to store environment configs (for production or deployment),  
+create a `.env` file in the root directory:
+```env
+PORT=3000
+BACKEND_URL=http://127.0.0.1:8000/generate
+```
+Then load it in `server.js` using:
 ```javascript
-fetch("http://localhost:5000/generate", {
-  method: "POST",
-  body: JSON.stringify({ prompt }),
-});
+import dotenv from "dotenv";
+dotenv.config();
 ```
 
 ---
 
-## 🛠️ Built With
-
-- [TailwindCSS](https://tailwindcss.com/) – utility-first styling
-- Vanilla JavaScript – DOM handling & animations
-- HTML5 / CSS3 – semantic structure
+## 🎨 How It Works
+1. User enters a text prompt and clicks **Generate**.
+2. A wave animation and “Generating…” text appear.
+3. The app sends the prompt to the [Genime-Backend](https://github.com/harshpatel2312/Genime-Backend).
+4. Once generated, the image fades in smoothly below the prompt.
 
 ---
 
-## 🔗 Integration with Genime-Backend
-
-- The frontend connects to [Genime-Backend](https://github.com/harshpatel2312/Genime-Backend) for prompt-based image generation.
-- Ensure **CORS is enabled** on backend to allow requests from your frontend domain.
-- Deploy both frontend + backend to the same domain or configure CORS for cross-origin access.
+## 🧰 Future Improvements
+- Add user authentication (login/signup)
+- Allow multiple image generations
+- Integrate direct image download button
+- Add “Regenerate” and “Clear” actions
 
 ---
 
