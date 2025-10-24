@@ -1,0 +1,39 @@
+<!-- Login Modal -->
+<div id="loginModal"
+     class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 hidden transition-opacity duration-300">
+  <div class="bg-[#111111] border border-white/10 rounded-2xl shadow-2xl w-full max-w-sm p-8 relative">
+    <button id="closeLoginModal"
+            class="absolute top-3 right-3 text-gray-400 hover:text-white text-xl font-bold">
+      ✕
+    </button>
+
+    <h2 class="text-3xl font-bold text-center mb-6 text-blue-400">Login</h2>
+
+    <form id="loginForm">
+      <div id="loginMessage" class="mt-4 text-center text-sm font-medium hidden"></div>
+      <div class="mb-4 text-left">
+        <label for="loginEmail" class="block mb-2 text-sm font-medium text-gray-300">Email Address</label>
+        <input type="email" id="loginEmail" name="email"
+               class="w-full rounded-lg bg-[#1a1a1a] border border-white/20 p-3 text-white focus:ring-2 focus:ring-blue-500"
+               placeholder="example@email.com" required>
+      </div>
+
+      <div class="mb-6 text-left">
+        <label for="loginPassword" class="block mb-2 text-sm font-medium text-gray-300">Password</label>
+        <input type="password" id="loginPassword" name="password"
+               class="w-full rounded-lg bg-[#1a1a1a] border border-white/20 p-3 text-white focus:ring-2 focus:ring-blue-500"
+               placeholder="••••••••" required>
+      </div>
+
+      <button type="submit"
+              class="w-full bg-blue-600 hover:bg-blue-700 transition-colors text-white font-bold py-2 rounded-lg">
+        Login
+      </button>
+    </form>
+
+    <p class="mt-6 text-center text-gray-400 text-sm">
+      Don’t have an account?
+      <a href="#" id="openSignupFromLogin" class="text-blue-400 hover:underline">Sign up</a>
+    </p>
+  </div>
+</div>

@@ -2,7 +2,8 @@
   "name": "genime-frontend",
   "version": "1.0.0",
   "description": "**Genime-Frontend** is the user interface for **Genime**, an AI-powered anime image generator.  \r It allows users to enter prompts, send them to the backend, and view generated results in a sleek, responsive interface.",
-  "main": "index.js",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

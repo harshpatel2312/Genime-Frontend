@@ -10,87 +10,98 @@
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 
-<body class="bg-black font-['Space Grotesk','Noto Sans',sans-serif]">
-  <div class="relative flex min-h-screen flex-col overflow-x-hidden">
-    <!-- Background -->
-    <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-black/40 z-10"></div>
-      <div class="absolute inset-0 bg-cover bg-center"
-           style="background-image:url('/assets/background-images/Samurai.jpeg');"></div>
-    </div>
+<body class="bg-[#0b0c10] text-white font-['Space Grotesk','Noto Sans',sans-serif]">
+  <div class="relative flex min-h-screen flex-col overflow-x-hidden bg-gradient-to-b from-black via-[#0b0c10] to-[#111111]">
 
-    <!-- Foreground -->
-    <div class="relative z-20 flex grow flex-col">
-      <!-- Header -->
-      <header class="flex items-center justify-between border-b border-white/10 px-10 py-4">
-        <div class="flex items-center gap-3 text-white">
-          <svg class="size-6 text-red-500" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
-              d="M12.08 24 4 19.25l5.95-10.5 8.09 4.74V4h11.91v9.49l8.09-4.74 5.96 10.5-8.08 4.75 8.08 4.75-5.96 10.5-8.09-4.74V44H18.04v-9.49l-8.09 4.74L4 28.75 12.08 24Z" />
-          </svg>
-          <h1 class="text-xl font-bold tracking-tighter">Genime</h1>
-        </div>
-        <button class="rounded-lg bg-red-600 px-6 h-10 text-sm font-bold text-white hover:bg-red-700 transition-colors">
-          Login / Sign Up
+    <!-- Header -->
+    <header class="flex items-center justify-between border-b border-white/10 px-10 py-4">
+      <div class="flex items-center gap-3 text-white">
+        <svg class="size-6 text-blue-500" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+            d="M12.08 24 4 19.25l5.95-10.5 8.09 4.74V4h11.91v9.49l8.09-4.74 5.96 10.5-8.08 4.75 8.08 4.75-5.96 10.5-8.09-4.74V44H18.04v-9.49l-8.09 4.74L4 28.75 12.08 24Z" />
+        </svg>
+        <h1 class="text-xl font-bold tracking-tighter">Genime</h1>
+      </div>
+
+      <div class="relative">
+        <button id="userBtn" class="rounded-lg bg-600 px-6 h-10 text-sm font-bold text-white hover:bg-700 transition-colors">
+          Login
         </button>
-      </header>
 
-      <!-- Main -->
-      <main class="flex flex-1 flex-col items-center px-4 py-24 sm:px-6 lg:px-8 text-center">
-        <section class="max-w-3xl">
-          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter text-white">
-            Bring Your Imagination to Life
-          </h2>
-          <p class="mt-4 max-w-xl mx-auto text-lg text-gray-300">
-            Generate stunning, unique anime-style art with the power of AI. Just type a prompt and watch the magic happen.
-          </p>
-        </section>
+        <!-- Dropdown card -->
+        <div id="userDropdown"
+            class="hidden absolute right-0 mt-2 w-40 bg-[#111111] border border-white/10 rounded-xl shadow-lg py-2 transition-all duration-200">
+          <a href="#" id="profileOption"
+             class="block px-4 py-2 text-sm text-white hover:bg-[#1f1f1f] transition-colors">
+            Profile
+          </a>
+          <button id="logoutOption"
+                  class="w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-[#1f1f1f] transition-colors">
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
 
-        <!-- Prompt -->
-        <section class="mt-10 w-full max-w-2xl">
-          <div class="flex flex-col items-center">
-            <textarea
-              id="prompt"
-              rows="2"
-              placeholder="A cat samurai in a neon-lit Tokyo street, detailed, cinematic"
-              class="w-full rounded-xl border border-white/20 bg-black/50 p-4 text-base text-white placeholder-gray-400 resize-none min-h-[64px] focus:ring-2 focus:ring-blue-500 transition-all duration-300"></textarea>
+    <!-- Main -->
+    <main class="flex flex-1 flex-col items-center px-4 py-24 sm:px-6 lg:px-8 text-center">
+      <section class="max-w-3xl">
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter text-white">
+          Bring Your Imagination to Life
+        </h2>
+        <p class="mt-4 max-w-xl mx-auto text-lg text-gray-300">
+          Generate stunning, unique anime-style art with the power of AI. Just type a prompt and watch the magic happen.
+        </p>
+      </section>
 
-            <button
-              id="generateBtn"
-              class="mt-4 rounded-lg bg-red-600 px-8 py-3 text-sm font-bold text-white hover:bg-red-700 transition-colors">
-              Generate
-            </button>
+      <!-- Prompt -->
+      <section class="mt-10 w-full max-w-2xl">
+        <div class="flex flex-col items-center">
+          <textarea
+            id="prompt"
+            rows="2"
+            placeholder="A cat samurai in a neon-lit Tokyo street, detailed, cinematic"
+            class="w-full rounded-xl border border-white/20 bg-[#1a1a1a] p-4 text-base text-white placeholder-gray-400 resize-none min-h-[64px] focus:ring-2 focus:ring-blue-500 transition-all duration-300"></textarea>
+
+          <button
+            id="generateBtn"
+            class="mt-4 rounded-lg bg-blue-600 px-8 py-3 text-sm font-bold text-white hover:bg-blue-700 transition-colors">
+            Generate
+          </button>
+        </div>
+      </section>
+
+      <!-- Loading Wave -->
+      <section class="mt-12 w-full max-w-2xl hidden" id="loadingSection">
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center justify-between">
+            <p id="generatingLabel" class="text-base font-medium text-white">Generating...</p>
+            <p id="loadingText" class="text-sm text-gray-400">This may take a few seconds</p>
           </div>
-        </section>
-
-        <!-- Loading Wave -->
-        <section class="mt-12 w-full max-w-2xl hidden" id="loadingSection">
-          <div class="flex flex-col gap-2">
-            <div class="flex items-center justify-between">
-              <p id="generatingLabel" class="text-base font-medium text-white">Generating...</p>
-              <p id="loadingText" class="text-sm text-gray-400">This may take a few seconds</p>
-            </div>
-            <div class="wave-wrapper">
-              <div class="wave-fill" id="waveFill">
-                <div class="wave"></div>
-              </div>
+          <div class="wave-wrapper">
+            <div class="wave-fill" id="waveFill">
+              <div class="wave"></div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- Generated Image -->
-        <section class="mt-10 w-full max-w-2xl hidden" id="imageContainer">
-          <h3 id="resultText"
-              class="text-xl font-semibold mb-6 text-white opacity-0 transition-opacity duration-700">
-            Image generated below 👇
-          </h3>
-          <img id="generatedImage"
-               class="max-w-full rounded-xl shadow-xl border border-white/10 opacity-0 mx-auto fade-in-image" />
-        </section>
-      </main>
-    </div>
+      <!-- Generated Image -->
+      <section class="mt-10 w-full max-w-2xl hidden" id="imageContainer">
+        <h3 id="resultText"
+            class="text-xl font-semibold mb-6 text-white opacity-0 transition-opacity duration-700">
+          Image generated below 👇
+        </h3>
+        <img id="generatedImage"
+             class="max-w-full rounded-xl shadow-xl border border-white/10 opacity-0 mx-auto fade-in-image" />
+      </section>
+    </main>
   </div>
 
   <script src="/js/loading.js"></script>
+  <%- include('partials/login-modal') %>
+  <%- include('partials/signup-modal') %>
+  <script src="/js/auth.js"></script>
+
 </body>
 </html>
