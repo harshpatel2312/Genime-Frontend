@@ -90,7 +90,7 @@ dotenv.config();
 ---
 
 ## 📸 Preview
-![Genime Screenshot](public/assets/github-preview/Genime-Preview.png)
+![Genime Screenshot](https://github.com/user-attachments/assets/8ac4f8e0-2128-404f-b5e9-eceb5ed95398)
 
 ---
 
