@@ -54,3 +54,66 @@
 .fade-in-image {
   animation: fadeInSmooth 1.5s ease forwards;
 }
+
+/* ===== Modal Animations ===== */
+@keyframes fadeInModal {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOutModal {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+/* Animation classes (added dynamically) */
+.modal-show {
+  animation: fadeInModal 0.3s ease-out forwards;
+}
+
+.modal-hide {
+  animation: fadeOutModal 0.25s ease-in forwards;
+}
+
+#userDropdown {
+  transform: scale(0.95);
+  opacity: 0;
+  transform-origin: top right;
+}
+
+#userDropdown:not(.hidden) {
+  transform: scale(1);
+  opacity: 1;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+/* === Profile dropdown animation === */
+#userDropdown {
+  transform: scale(0.9);
+  opacity: 0;
+  transform-origin: top right;
+  transition:
+    transform 0.18s ease-out,
+    opacity 0.18s ease-out;
+  backdrop-filter: blur(8px);
+  background-color: rgba(17, 17, 17, 0.9);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.25);
+}
+
+/* When visible */
+#userDropdown.show {
+  transform: scale(1);
+  opacity: 1;
+}
