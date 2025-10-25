@@ -56,6 +56,18 @@ document.addEventListener("DOMContentLoaded", () => {
         generatedImage.classList.add("fade-in-image");
         generatedImage.src = "data:image/png;base64," + base64Img;
 
+        // Show download button
+        const downloadBtn = document.getElementById("downloadBtn");
+        downloadBtn.classList.remove("hidden");
+
+        // Set up download
+        downloadBtn.onclick = () => {
+          const link = document.createElement("a");
+          link.href = generatedImage.src;
+          link.download = `genime_${Date.now()}.png`;
+          link.click();
+        };
+
         // Stop wave and fade out
         setTimeout(() => {
           waveFill.querySelector(".wave").style.animation = "none";

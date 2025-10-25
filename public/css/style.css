@@ -117,3 +117,11 @@
   transform: scale(1);
   opacity: 1;
 }
+
+#downloadBtn {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+#downloadBtn:not(.hidden) {
+  opacity: 1;
+}
