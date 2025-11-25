@@ -54,7 +54,7 @@
         </p>
       </section>
 
-      <!-- Prompt -->
+      <!-- Prompt + Mode Toggle -->
       <section class="mt-10 w-full max-w-2xl">
         <div class="flex flex-col items-center">
           <textarea
@@ -63,6 +63,26 @@
             placeholder="A cat samurai in a neon-lit Tokyo street, detailed, cinematic"
             class="w-full rounded-xl border border-white/20 bg-[#1a1a1a] p-4 text-base text-white placeholder-gray-400 resize-none min-h-[64px] focus:ring-2 focus:ring-blue-500 transition-all duration-300"></textarea>
 
+          <!-- Apple-style segmented toggle: Image / Video -->
+          <div
+            class="mt-4 inline-flex items-center justify-center rounded-full bg-white/10 border border-white/20 p-1 text-sm shadow-inner"
+          >
+            <button
+              id="modeImageBtn"
+              type="button"
+              class="px-4 py-1 rounded-full text-xs sm:text-sm font-medium bg-white text-black shadow transition-all duration-300"
+            >
+              Image
+            </button>
+            <button
+              id="modeVideoBtn"
+              type="button"
+              class="px-4 py-1 rounded-full text-xs sm:text-sm font-medium text-gray-300 bg-transparent transition-all duration-300"
+            >
+              Video
+            </button>
+          </div>
+
           <button
             id="generateBtn"
             class="mt-4 rounded-lg bg-blue-600 px-8 py-3 text-sm font-bold text-white hover:bg-blue-700 transition-colors">
@@ -70,6 +90,8 @@
           </button>
         </div>
       </section>
+
+
 
       <!-- Loading Wave -->
       <section class="mt-12 w-full max-w-2xl hidden" id="loadingSection">
@@ -99,6 +121,25 @@
         Download Image
         </button>
       </section>
+
+        <!-- Generated Video -->
+        <section class="mt-10 w-full max-w-2xl hidden" id="videoContainer">
+          <h3
+            id="videoResultText"
+            class="text-xl font-semibold mb-4 text-white"
+          >
+            Video generated below
+          </h3>
+
+          <video
+            id="generatedVideo"
+            class="w-full rounded-xl fade-in-image"
+            controls
+            playsinline
+          ></video>
+        </section>
+
+
     </main>
   </div>
 
