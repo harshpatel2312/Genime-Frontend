@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const logoutOption = document.getElementById("logoutOption");
   const profileOption = document.getElementById("profileOption");
 
-  const BACKEND_URL = "http://ec2-52-7-248-169.compute-1.amazonaws.com:8000/auth";
+  const BACKEND_URL = "https://jzll0u0z3j.execute-api.us-east-1.amazonaws.com/prod/auth";
 
   // ===== Utility: Inline message display =====
   const showMessage = (element, message, type = "error") => {

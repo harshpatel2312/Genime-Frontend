@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // const VIDEO_BACKEND_URL = `${BASE_URL}/generate/video`; // Video Generation
 
   // Backend URLs
-  const BASE_URL = "http://ec2-52-7-248-169.compute-1.amazonaws.com:8000"
+  const BASE_URL = "https://jzll0u0z3j.execute-api.us-east-1.amazonaws.com/prod"
   const IMAGE_BACKEND_URL = `${BASE_URL}/generate/image`; // Image Generation
   const VIDEO_BACKEND_URL = `${BASE_URL}/generate/video`; // Video Generation
 
