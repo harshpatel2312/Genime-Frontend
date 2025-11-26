@@ -18,9 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const modeImageBtn = document.getElementById("modeImageBtn");
   const modeVideoBtn = document.getElementById("modeVideoBtn");
 
+  // // Localhost URL's
+  // const BASE_URL = "http://127.0.0.1:8000"
+  // const IMAGE_BACKEND_URL = `${BASE_URL}/generate/image`; // Image Generation
+  // const VIDEO_BACKEND_URL = `${BASE_URL}/generate/video`; // Video Generation
+
   // Backend URLs
-  const IMAGE_BACKEND_URL = "http://127.0.0.1:8000/generate/image"; // Image Generation
-  const VIDEO_BACKEND_URL = "http://127.0.0.1:8000/generate/video"; // Video Generation
+  const BASE_URL = "http://ec2-52-7-248-169.compute-1.amazonaws.com:8000"
+  const IMAGE_BACKEND_URL = `${BASE_URL}/generate/image`; // Image Generation
+  const VIDEO_BACKEND_URL = `${BASE_URL}/generate/video`; // Video Generation
 
   let currentMode = "image"; // "image" or "video"
 
