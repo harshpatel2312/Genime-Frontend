@@ -4,6 +4,7 @@
 
 # Other
 node_modules/
+genime-amplify/
 .env
 .DS_Store
 *.log
